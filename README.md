@@ -11,8 +11,8 @@ Claude · GPT · Gemini의 토큰 사용량을 한 화면에서 추적하는 사
 ## 실행 방법
 
 ```bash
-git clone https://github.com/<계정>/erp-dashboard.git
-cd erp-dashboard
+git clone https://github.com/kknb2002-ctrl/token-usage-console.git
+cd token-usage-console
 python3 -m http.server 5173
 ```
 
