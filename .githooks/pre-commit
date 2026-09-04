@@ -1,0 +1,22 @@
+#!/bin/sh
+# 커밋 전 비밀정보 스캔 — 실수로 API 키가 올라가는 것을 막는다.
+# 활성화:  git config core.hooksPath .githooks
+
+FILES=$(git diff --cached --name-only --diff-filter=ACM | grep -v '^\.githooks/')
+[ -z "$FILES" ] && exit 0
+
+PATTERNS='sk-ant-[A-Za-z0-9_-]{24,}|sk-(proj-|admin-)?[A-Za-z0-9]{32,}|AIza[0-9A-Za-z_-]{35}|gh[pousr]_[A-Za-z0-9]{36}|AKIA[0-9A-Z]{16}'
+
+HITS=$(git diff --cached -U0 -- $FILES | grep -nE "^\+" | grep -En "$PATTERNS")
+
+if [ -n "$HITS" ]; then
+  echo ""
+  echo "🚫 커밋 중단: API 키로 보이는 문자열이 발견되었습니다."
+  echo "$HITS" | head -20
+  echo ""
+  echo "   해당 값을 파일에서 제거한 뒤 다시 커밋하세요."
+  echo "   (정말 문제 없다면 git commit --no-verify)"
+  echo ""
+  exit 1
+fi
+exit 0

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ERP</title>
+<link rel="stylesheet" href="css/styles.css" />
+</head>
+<body data-page="usage">
+<div class="app">
+
+  <!-- ========== 사이드바 ========== -->
+  <aside class="sidebar" id="sidebar"></aside>
+
+  <!-- ========== 메인 ========== -->
+  <main class="main">
+    <header class="topbar">
+      <div>
+        <h1>ERP</h1>
+        <p class="crumb">Claude · GPT · Gemini 토큰 사용량을 한 화면에서 봅니다.</p>
+      </div>
+      <div class="topbar-actions">
+        <div class="live-dot" id="liveDot"><i></i><span id="liveText">LIVE</span></div>
+        <button class="btn" id="btnPause">일시정지</button>
+        <button class="btn btn-ghost" id="btnClear">기록 비우기</button>
+        <button class="btn btn-primary" id="btnExport">CSV 내보내기</button>
+      </div>
+    </header>
+
+    <!-- 토큰 사용량 -->
+    <section class="sec" id="sec-usage">
+      <div class="kpi-grid" id="kpiGrid"></div>
+
+      <div class="panel">
+        <div class="panel-head">
+          <h2>최근 15분 토큰 추이</h2>
+          <div class="chips" id="filterChips"></div>
+        </div>
+        <div class="chart-wrap"><canvas id="chart"></canvas></div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-head">
+          <h2>제공자별 요약</h2>
+          <span class="muted" id="summaryStamp"></span>
+        </div>
+        <div class="provider-grid" id="providerGrid"></div>
+      </div>
+      <div class="panel">
+        <div class="panel-head">
+          <h2>호출 로그</h2>
+          <a class="link-more" href="logs.html">전체 보기 →</a>
+        </div>
+        <div class="table-wrap">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>시각</th><th>제공자</th><th>모델</th><th>작업</th>
+                <th class="num">입력</th><th class="num">출력</th><th class="num">캐시</th>
+                <th class="num">합계</th><th class="num">비용(USD)</th><th>상태</th>
+              </tr>
+            </thead>
+            <tbody id="logBody"></tbody>
+          </table>
+          <div class="empty" id="logEmpty" hidden>표시할 호출 기록이 없습니다.</div>
+        </div>
+        <div class="panel-foot">
+          <span class="muted" id="logCount"></span>
+          <a class="btn btn-sm" href="logs.html">전체 로그 보기</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script src="js/config.js"></script>
+<script src="js/nav.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/store.js"></script>
+<script src="js/datasource.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

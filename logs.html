@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ERP · 전체 호출 로그</title>
+<link rel="stylesheet" href="css/styles.css" />
+</head>
+<body data-page="logs">
+<div class="app">
+
+  <aside class="sidebar" id="sidebar"></aside>
+
+  <main class="main">
+    <header class="topbar">
+      <div>
+        <a class="back-link" href="index.html">← 대시보드</a>
+        <h1>전체 호출 로그</h1>
+        <p class="crumb" id="rangeInfo">보관 중인 모든 호출 기록입니다.</p>
+      </div>
+      <div class="topbar-actions">
+        <div class="live-dot" id="liveDot"><i></i><span id="liveText">LIVE</span></div>
+        <button class="btn" id="btnPause">일시정지</button>
+        <button class="btn btn-primary" id="btnExport">CSV 내보내기</button>
+      </div>
+    </header>
+
+    <section class="sec">
+      <div class="panel">
+        <div class="panel-head">
+          <div class="toolbar">
+            <div class="chips" id="filterChips"></div>
+            <input class="input input-sm" id="search" type="search" placeholder="모델 / 작업 검색" />
+          </div>
+          <select class="input input-sm" id="pageSize">
+            <option value="25">25개씩</option>
+            <option value="50" selected>50개씩</option>
+            <option value="100">100개씩</option>
+          </select>
+        </div>
+
+        <div class="table-wrap">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>시각</th><th>제공자</th><th>모델</th><th>작업</th>
+                <th class="num">입력</th><th class="num">출력</th><th class="num">캐시</th>
+                <th class="num">합계</th><th class="num">비용(USD)</th><th>상태</th>
+              </tr>
+            </thead>
+            <tbody id="logBody"></tbody>
+          </table>
+          <div class="empty" id="logEmpty" hidden>표시할 호출 기록이 없습니다.</div>
+        </div>
+
+        <div class="panel-foot">
+          <span class="muted" id="pageInfo"></span>
+          <div class="pager">
+            <button class="btn btn-sm" id="prevPage">← 이전</button>
+            <button class="btn btn-sm" id="nextPage">다음 →</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+
+<script src="js/config.js"></script>
+<script src="js/nav.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/store.js"></script>
+<script src="js/datasource.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/logs.js"></script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ERP · 로그인</title>
+<link rel="stylesheet" href="css/styles.css" />
+</head>
+<body class="auth-body">
+  <main class="auth-card">
+    <div class="auth-brand">
+      <div class="brand-mark">E</div>
+      <div>
+        <div class="brand-name">ERP</div>
+        <div class="brand-sub">AI 토큰 사용량 관리</div>
+      </div>
+    </div>
+
+    <div class="auth-tabs" id="authTabs">
+      <button class="auth-tab is-on" data-tab="login">로그인</button>
+      <button class="auth-tab" data-tab="signup">직원 등록</button>
+    </div>
+
+    <!-- 로그인 -->
+    <form class="auth-form" id="formLogin">
+      <div class="field">
+        <label for="loginId">아이디</label>
+        <input class="input" id="loginId" autocomplete="username" autocapitalize="off" spellcheck="false" required />
+      </div>
+      <div class="field">
+        <label for="loginPw">비밀번호</label>
+        <input class="input" id="loginPw" type="password" autocomplete="current-password" required />
+      </div>
+      <label class="check">
+        <input type="checkbox" id="loginKeep" checked />
+        <span>이 PC에서 로그인 유지 <em>(14일 · 공용 PC에서는 꺼주세요)</em></span>
+      </label>
+      <button class="btn btn-primary btn-block" type="submit">로그인</button>
+    </form>
+
+    <!-- 등록 -->
+    <form class="auth-form" id="formSignup" hidden>
+      <div class="field">
+        <label for="suName">이름</label>
+        <input class="input" id="suName" placeholder="홍길동" required />
+      </div>
+      <div class="field">
+        <label for="suId">아이디</label>
+        <input class="input" id="suId" placeholder="영문·숫자 3~20자" autocapitalize="off" spellcheck="false" required />
+      </div>
+      <div class="field">
+        <label for="suPw">비밀번호 <em class="muted">(8자 이상)</em></label>
+        <input class="input" id="suPw" type="password" autocomplete="new-password" required />
+      </div>
+      <div class="field">
+        <label for="suPw2">비밀번호 확인</label>
+        <input class="input" id="suPw2" type="password" autocomplete="new-password" required />
+      </div>
+      <button class="btn btn-primary btn-block" type="submit">등록하고 시작하기</button>
+    </form>
+
+    <p class="auth-msg" id="authMsg" hidden></p>
+
+    <div class="auth-note">
+      <strong>🔐 API 키는 본인만 볼 수 있습니다</strong>
+      <p>
+        각자 로그인해서 자신의 Claude · GPT · Gemini 키를 등록합니다. 키는 <b>본인 비밀번호로 암호화</b>되어
+        저장되므로, 다른 직원이 자기 계정으로 로그인해도 남의 키는 열 수 없습니다.
+        <b>비밀번호를 잊으면 키도 복구할 수 없습니다.</b>
+      </p>
+    </div>
+  </main>
+
+  <script src="js/auth.js"></script>
+  <script src="js/login.js"></script>
+</body>
+</html>

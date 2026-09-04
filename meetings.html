@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ERP · 미팅</title>
+<link rel="stylesheet" href="css/styles.css" />
+</head>
+<body data-page="meetings">
+<div class="app">
+  <aside class="sidebar" id="sidebar"></aside>
+  <main class="main">
+    <header class="topbar">
+      <div>
+        <h1>미팅 <span class="badge ok">공용</span></h1>
+        <p class="crumb">회의 일정은 회사 전체가 함께 봅니다.</p>
+      </div>
+    </header>
+    <section class="sec" id="content"></section>
+  </main>
+</div>
+<script src="js/config.js"></script>
+<script src="js/nav.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/shared.js"></script>
+<script>document.addEventListener('DOMContentLoaded', () => SharedPage.boot('meetings'));</script>
+</body>
+</html>
